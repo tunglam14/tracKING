@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tracking</title>
+  <meta charset="utf-8">
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="plugins/bootstrap/bootstrap.css" rel="stylesheet">
+  <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+  <link href="plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
+  <link href="plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+  <link href="plugins/xcharts/xcharts.min.css" rel="stylesheet">
+  <link href="plugins/select2/select2.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<%= render 'layouts/header' %>
+<div id="main" class="container-fluid">
+<div class="row">
+<%= render 'layouts/left' %>
+<%= yield %>
+    <div id="content" class="col-xs-12 col-sm-10">
+      <div class="preloader">
+        <img src="img/devoops_getdata.gif" class="devoops-getdata" alt="preloader"/>
+      </div>
+      <div id="ajax-content"></div>
+    </div>
+    <!--End Content-->
+  </div>
+</div>
+
+<script src="plugins/jquery/jquery-2.1.0.min.js"></script>
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/justified-gallery/jquery.justifiedgallery.min.js"></script>
+<script src="plugins/tinymce/tinymce.min.js"></script>
+<script src="plugins/tinymce/jquery.tinymce.min.js"></script>
+<script src="js/devoops.js"></script>
+</body>
+</html>
