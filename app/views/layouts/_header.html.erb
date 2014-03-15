@@ -33,40 +33,18 @@
             <a href="#" class="show-sidebar">
               <i class="fa fa-bars"></i>
             </a>
-            <div id="search">
-              <input type="text" placeholder="search"/>
-              <i class="fa fa-search"></i>
-            </div>
           </div>
           <div class="col-xs-4 col-sm-8 top-panel-right">
             <ul class="nav navbar-nav pull-right panel-menu">
-              <li class="hidden-xs">
-                <a href="index.html" class="modal-link">
-                  <i class="fa fa-bell"></i>
-                  <span class="badge">7</span>
-                </a>
-              </li>
-              <li class="hidden-xs">
-                <a class="ajax-link" href="ajax/calendar.html">
-                  <i class="fa fa-calendar"></i>
-                  <span class="badge">7</span>
-                </a>
-              </li>
-              <li class="hidden-xs">
-                <a href="ajax/page_messages.html" class="ajax-link">
-                  <i class="fa fa-envelope"></i>
-                  <span class="badge">7</span>
-                </a>
-              </li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle account" data-toggle="dropdown">
                   <div class="avatar">
-                    <img src="img/avatar.jpg" class="img-rounded" alt="avatar" />
+                    <!-- <img src="img/avatar.jpg" class="img-rounded" alt="avatar" /> -->
                   </div>
                   <i class="fa fa-angle-down pull-right"></i>
                   <div class="user-mini pull-right">
                     <span class="welcome">Welcome,</span>
-                    <span>Jane Devoops</span>
+                    <span><%= current_user.email %></span>
                   </div>
                 </a>
                 <ul class="dropdown-menu">
@@ -77,34 +55,8 @@
                     </a>
                   </li>
                   <li>
-                    <a href="ajax/page_messages.html" class="ajax-link">
-                      <i class="fa fa-envelope"></i>
-                      <span class="hidden-sm text">Messages</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="ajax/gallery_simple.html" class="ajax-link">
-                      <i class="fa fa-picture-o"></i>
-                      <span class="hidden-sm text">Albums</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="ajax/calendar.html" class="ajax-link">
-                      <i class="fa fa-tasks"></i>
-                      <span class="hidden-sm text">Tasks</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-cog"></i>
-                      <span class="hidden-sm text">Settings</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-power-off"></i>
-                      <span class="hidden-sm text">Logout</span>
-                    </a>
+                    <%= link_to '<i class="fa fa-power-off"></i><span class="hidden-sm text">Logout</span>'.html_safe,
+                    destroy_user_session_path, method: :delete %>
                   </li>
                 </ul>
               </li>

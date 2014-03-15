@@ -13,6 +13,12 @@ Tracking::Application.routes.draw do
   get 'visitor'   => 'static#visitor',   as: 'visitor'
   get 'page'      => 'static#page',      as: 'page'
   get 'system'    => 'static#system',    as: 'system'
+
+  devise_for :users, :controllers => {
+    :registrations => "users/registrations",
+    :sessions => "users/sessions",
+    :passwords => "users/passwords"
+  }
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
