@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Tracking</title>
+  <title><%= APP_CONFIG['site_title']%></title>
   <meta charset="utf-8">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -25,7 +25,7 @@
 <%= yield %>
     <div id="content" class="col-xs-12 col-sm-10">
       <div class="preloader">
-        <img src="img/devoops_getdata.gif" class="devoops-getdata" alt="preloader"/>
+        <img src="/img/devoops_getdata.gif" class="devoops-getdata" alt="preloader"/>
       </div>
       <div id="ajax-content"></div>
     </div>
@@ -40,5 +40,18 @@
 <script src="plugins/tinymce/tinymce.min.js"></script>
 <script src="plugins/tinymce/jquery.tinymce.min.js"></script>
 <script src="js/devoops.js"></script>
+<script src="plugins/notify/notify.min.js"></script>
+<script src="plugins/notify/notify-bootstrap.js"></script>
+
+<% flash.each do |name, msg| %>
+<script>
+$(document).ready(function(){
+  $.notify( "<%= msg %>", "name"
+    {position: 'bottom right'}
+  );
+});
+</script>
+<% end %>
+
 </body>
 </html>
