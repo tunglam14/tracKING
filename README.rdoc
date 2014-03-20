@@ -2,3 +2,6 @@
 
 a RoR web app to manage and track website visitor
 
+=== Thanks
+
+* to Devoops team for the template: https://github.com/devoopsme/devoops
