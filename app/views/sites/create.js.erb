@@ -1,0 +1,12 @@
+<% if @status == "OK" %>
+<%= render "layouts/flash", msg: "Create OK", status: "success" %>
+
+setTimeout(
+  function(){
+    location.reload()
+  },
+  1000
+);
+<% else %>
+<%= render "layouts/flash", msg: "Create Fail", status: "error" %>
+<% end %>

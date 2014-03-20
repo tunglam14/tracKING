@@ -43,15 +43,14 @@
 <script src="plugins/notify/notify.min.js"></script>
 <script src="plugins/notify/notify-bootstrap.js"></script>
 
-<% flash.each do |name, msg| %>
 <script>
 $(document).ready(function(){
+<% flash.each do |name, msg| %>
   $.notify( "<%= msg %>",
     {position: 'bottom right',className: '<%= name %>'}
   );
+<% end %>
 });
 </script>
-<% end %>
-
 </body>
 </html>

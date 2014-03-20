@@ -1,0 +1,32 @@
+<%
+sites = Site.all
+if sites.empty?
+  %>
+  <div class="alert alert-info">You don't have any site yet, please add.</div>
+  <%
+else
+  %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>URL</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+  <%
+  i = 1;
+  sites.each do |site|
+ %>
+        <tr>
+          <td><%= i %></td>
+          <td><%= site.name %></td>
+          <td><%= site.url %></td>
+          <td><%= site.description %></td>
+        </tr>
+  <% end %>
+      </tbody>
+    </table>
+<% end %>

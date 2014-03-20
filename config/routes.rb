@@ -8,6 +8,8 @@ Tracking::Application.routes.draw do
     collection do
     end
   end
+
+  resources :sites
   get 'realtime'  => 'static#realtime',  as: 'realtime'
   get 'dashboard' => 'static#dashboard', as: 'dashboard'
   get 'visitor'   => 'static#visitor',   as: 'visitor'

@@ -1,0 +1,85 @@
+<!--Start Breadcrumb-->
+<div class="row">
+  <div id="breadcrumb" class="col-xs-12">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Site Management</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="row">
+  <div id="dashboard_links" class="col-xs-12 col-sm-2 pull-right">
+    <ul class="nav nav-pills nav-stacked">
+      <li class="active"><a href="#" class="tab-link" id="allsite">All your site</a></li>
+      <li><a href="#" class="tab-link" id="newsite">Add new site</a></li>
+    </ul>
+  </div>
+  <div id="dashboard_tabs" class="col-xs-12 col-sm-10">
+    <!-- list all sites -->
+    <div id="dashboard-allsite" class="row col-xs-12" style="visibility: visible; position: relative;">
+      <br>
+      <div id="" class="box">
+        <div class="box-header">
+          <div class="box-name">
+            <i class="fa fa-plus"></i>
+            <span>Your sites</span>
+          </div>
+          <div class="box-icons">
+<!--             <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="expand-link">
+              <i class="fa fa-expand"></i>
+            </a>
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a> -->
+          </div>
+          <div class="no-move"></div>
+        </div>
+        <div class="box-content">
+        <%= render "sites/all_site" %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add site -->
+    <div id="dashboard-newsite" class="row col-xs-12" style="visibility: hidden; position: absolute;">
+      <br>
+      <div id="" class="box">
+        <div class="box-header">
+          <div class="box-name">
+            <i class="fa fa-plus"></i>
+            <span>Add new site</span>
+          </div>
+          <div class="box-icons">
+<!--             <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="expand-link">
+              <i class="fa fa-expand"></i>
+            </a>
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a> -->
+          </div>
+          <div class="no-move"></div>
+        </div>
+        <div class="box-content">
+        <%= render "sites/new_site" %>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div style="height: 40px;"></div>
+<script type="text/javascript">
+
+$(document).ready(function() {
+  // Make all JS-activity for dashboard
+  DashboardTabChecker();
+});
+</script>
