@@ -46,8 +46,8 @@
 <% flash.each do |name, msg| %>
 <script>
 $(document).ready(function(){
-  $.notify( "<%= msg %>", "name"
-    {position: 'bottom right'}
+  $.notify( "<%= msg %>",
+    {position: 'bottom right',className: '<%= name %>'}
   );
 });
 </script>
