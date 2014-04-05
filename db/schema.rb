@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320140849) do
+ActiveRecord::Schema.define(version: 20140405142035) do
+
+  create_table "reqs", force: true do |t|
+    t.string   "referrer"
+    t.string   "location"
+    t.string   "resolution"
+    t.string   "useragent"
+    t.string   "ip"
+    t.string   "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sites", force: true do |t|
     t.integer  "user_id"
     t.string   "description"
     t.string   "name"
     t.string   "url"
+    t.string   "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -16,6 +16,8 @@ Tracking::Application.routes.draw do
   get 'page'      => 'static#page',      as: 'page'
   get 'system'    => 'static#system',    as: 'system'
 
+  get 'seed'    => 'seed#index'
+
   devise_for :users, :controllers => {
     :registrations => "users/registrations",
     :sessions => "users/sessions",

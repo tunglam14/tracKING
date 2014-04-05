@@ -5,6 +5,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :description
       t.string :name
       t.string :url
+      t.string :client_id
 
       t.timestamps
     end

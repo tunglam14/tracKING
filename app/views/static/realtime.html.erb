@@ -1,1 +1,115 @@
-realtime.html.erb
+<div class="row">
+  <div class="col-xs-12" id="breadcrumb">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="#/realtime">Realtime Overview</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="row">
+
+  <div class="col-xs-12 col-sm-6">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Striped rows</span>
+        </div>
+        <div class="box-icons">
+          <a class="collapse-link">
+            <i class="fa fa-chevron-up"></i>
+          </a>
+          <a class="expand-link">
+            <i class="fa fa-expand"></i>
+          </a>
+          <a class="close-link">
+            <i class="fa fa-times"></i>
+          </a>
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <p>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Homepage</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Nginx</td>
+              <td>http://nginx.org</td>
+              <td>webserver</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Apache</td>
+              <td>http://apache.org</td>
+              <td>webserver</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Skype</td>
+              <td>http://www.skype.com</td>
+              <td>Messenger</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Blender</td>
+              <td>http://www.blender.org</td>
+              <td>3D-modeller</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-xs-12 col-sm-12">
+    <div class="box" style="">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-spinner "></i>
+          <span>Who are online</span>
+        </div>
+        <div class="box-icons"></div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <p>Display current activities for users on your site</p>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>IP</th>
+              <th>Location</th>
+              <th>Browser</th>
+              <th>Country</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if @data.empty? %>
+            <div class="alert alert-info">You don't have any site yet, please add.</div>
+            <% else %>
+            <% binding.pry %>
+            <% @data.each do |req| %>
+            <tr>
+              <td><%= req["ip"] %></td>
+              <td><%= req.location %></td>
+              <td><%= get_useragent(req.useragent) %></td>
+              <td><%= get_ip_location(req.ip) %></td>
+            </tr>
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

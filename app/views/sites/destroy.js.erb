@@ -1,0 +1,9 @@
+if (<%= @status %>)
+{
+  $("#tr_for_<%= @id %>").remove();
+  <%= render "layouts/flash", msg: "Delete " + @site.name + " Done", status: "success" %>
+}
+else
+{
+  <%= render "layouts/flash", msg: "Delete " + @site.name + " Fail", status: "error" %>
+}

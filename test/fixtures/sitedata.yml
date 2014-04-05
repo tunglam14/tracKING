@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_id: 1
+  referrer: MyString
+  location: MyString
+  resolution: MyString
+  useragent: MyString
+
+two:
+  site_id: 1
+  referrer: MyString
+  location: MyString
+  resolution: MyString
+  useragent: MyString

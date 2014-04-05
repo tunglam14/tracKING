@@ -6,6 +6,9 @@ class StaticController < ApplicationController
   end
 
   def realtime
+    @site = Site.find(cookies[:current_site_id])
+    @data = Req.where(client_id: @site.client_id)
+
     render layout: false
   end
 

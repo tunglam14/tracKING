@@ -1,5 +1,4 @@
 <%
-sites = Site.all
 if sites.empty?
   %>
   <div class="alert alert-info">You don't have any site yet, please add.</div>
@@ -9,10 +8,10 @@ else
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
           <th>Name</th>
           <th>URL</th>
           <th>Description</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -20,13 +19,28 @@ else
   i = 1;
   sites.each do |site|
  %>
-        <tr>
-          <td><%= i %></td>
+        <tr id="tr_for_<%= site.id %>">
           <td><%= site.name %></td>
           <td><%= site.url %></td>
           <td><%= site.description %></td>
+          <td>
+            <button class="btn btn-primary btn-lg" onclick="show_dialog('<%= site.client_id %>')">
+              Get embed code
+            </button>
+            <%= link_to "Delete", site_path(site), method: 'delete', remote: true, class: "btn btn-danger pull-right", data: { confirm: "Delete this site [" + site.name + "]" } %>
+          </td>
         </tr>
   <% end %>
       </tbody>
     </table>
+
+<script>
+function show_dialog(id)
+{
+  var x;
+  var data = '<scr' + 'ipt> __tracking_client_id__ = "' + id + '"; </scr' + 'ipt><scr' + 'ipt src="<%= APP_CONFIG['hostname'] %>/seed/client.js"></scr' + 'ipt>';
+
+  prompt("Copy and paste to your site", data);
+}
+</script>
 <% end %>

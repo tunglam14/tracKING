@@ -23,23 +23,17 @@
         <div class="box-header">
           <div class="box-name">
             <i class="fa fa-plus"></i>
-            <span>Your sites</span>
+            <%
+            sites = current_user.site
+            %>
+            <span>Your sites (<%= sites.size %>)</span>
           </div>
           <div class="box-icons">
-<!--             <a class="collapse-link">
-              <i class="fa fa-chevron-up"></i>
-            </a>
-            <a class="expand-link">
-              <i class="fa fa-expand"></i>
-            </a>
-            <a class="close-link">
-              <i class="fa fa-times"></i>
-            </a> -->
           </div>
           <div class="no-move"></div>
         </div>
         <div class="box-content">
-        <%= render "sites/all_site" %>
+        <%= render "sites/all_site", sites: sites %>
         </div>
       </div>
     </div>
@@ -54,15 +48,6 @@
             <span>Add new site</span>
           </div>
           <div class="box-icons">
-<!--             <a class="collapse-link">
-              <i class="fa fa-chevron-up"></i>
-            </a>
-            <a class="expand-link">
-              <i class="fa fa-expand"></i>
-            </a>
-            <a class="close-link">
-              <i class="fa fa-times"></i>
-            </a> -->
           </div>
           <div class="no-move"></div>
         </div>
