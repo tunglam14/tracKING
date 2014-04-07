@@ -6,12 +6,12 @@ module SeedHelper
     client = {}
     client[:browser] = user_agent.browser + ' (' + user_agent.version.to_s + ')'
     client[:os] = user_agent.platform
-    
+
     return client
   end
 
   def get_ip_location(ip)
     l = Geocoder.search(ip)
-    return l[0].country
+    return l[0].country.nil? ? "None" : l[0].country
   end
 end
