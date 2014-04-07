@@ -1,6 +1,6 @@
 class Site < ActiveRecord::Base
   belongs_to :user
-  has_many :req, dependent: :destroy
+  has_many :req
   before_save :create_client_id
 
   def create_client_id

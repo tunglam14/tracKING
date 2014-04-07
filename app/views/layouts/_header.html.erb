@@ -52,7 +52,7 @@
                 <ul class="dropdown-menu">
                   <% sites.each do |site| %>
                   <li>
-                    <a href="#">
+                    <a href="/?client_id=<%= site.client_id %>">
                       <span class="hidden-sm text"><%= site.name %></span>
                     </a>
                   </li>

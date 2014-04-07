@@ -1,1 +1,243 @@
-Dashboard
+<style type="text/css">
+table thead th:first-child {
+  width: 60%;
+}
+</style>
+<div class="row">
+  <div class="col-xs-12" id="breadcrumb">
+    <ol class="breadcrumb">
+      <li><a href="/">Home</a></li>
+      <li><a href="#/dashboard">Dashboard</a></li>
+    </ol>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Total visit</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <center>
+        <h1><%= @total %></h1>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Unique visit</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <center>
+        <h1><%= @unique %></h1>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Pageview</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <center>
+        <h1><%= @total_pageview %></h1>
+        </center>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Top IPs</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>IP</th>
+              <th>Count</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_5_ip.each do |ip, count| %>
+            <tr>
+              <td><%= ip %></td>
+              <td><%= count %></td>
+              <td><%= get_ip_location(ip) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Top Platform</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>OS</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_5_os.each do |os, count| %>
+            <tr>
+              <td><%= get_useragent(os)[:os] %></td>
+              <td><%= count %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Top Browser</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>OS</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_5_os.each do |os, count| %>
+            <tr>
+              <td><%= get_useragent(os)[:browser] %></td>
+              <td><%= count %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Pageview</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Visit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_5_location.each do |ref, count| %>
+            <tr>
+              <td><a target="_blank" href="<%= ref %>"><%= ref %></a></td>
+              <td><%= count %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="box ui-draggable ui-droppable">
+      <div class="box-header">
+        <div class="box-name">
+          <i class="fa fa-table"></i>
+          <span>Top referrers</span>
+        </div>
+        <div class="box-icons">
+        </div>
+        <div class="no-move"></div>
+      </div>
+      <div class="box-content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>URL</th>
+              <th>Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_5_referrer.each do |ref, count| %>
+            <tr>
+              <td><a target="_blank" href="<%= ref %>"><%= ref %></a></td>
+              <td><%= count %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

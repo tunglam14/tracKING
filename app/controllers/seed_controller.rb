@@ -7,10 +7,10 @@ class SeedController < ApplicationController
     data[:client_id] = params[:u]
 
     # referer
-    data[:referrer] = params[:r]
+    data[:referrer] = random_referrer # params[:r]
 
     # resolution
-    data[:resolution] = random_referrer #params[:res]
+    data[:resolution] = params[:res]
 
     # location
     data[:location] = params[:l]
